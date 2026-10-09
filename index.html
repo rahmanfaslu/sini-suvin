@@ -33,6 +33,10 @@
     <video class="reveal-video" id="revealVideo" src="reveal.mp4" muted playsinline preload="auto"></video>
     <div class="reveal-veil"></div>
     <div class="reveal-content">
+      <div class="reveal-names-block">
+        <span class="reveal-tagline">THE WEDDING OF</span>
+        <h2 class="reveal-couple-names">Suvin <span class="reveal-amp">&amp;</span> Sini</h2>
+      </div>
       <button type="button" id="open-invitation-btn" class="open-invitation-btn">Open Invitation</button>
     </div>
   </div>
@@ -362,10 +366,10 @@
                 <figure class="memory-polaroid">
                   <span class="memory-tape"></span>
                   <div class="memory-photo">
-                    <img src="gallery/IMG_4919.webp" alt="Suvin and Sini — the day it all began" loading="lazy" decoding="async">
+                    <img src="gallery/img-1.webp" alt="Suvin and Sini — the day it all began" loading="lazy" decoding="async">
                   </div>
                   <figcaption class="story-card-inner">
-                    <div class="story-date-badge">02.02.2024</div>
+                    <div class="story-date-badge">10.03.2026</div>
                     <div class="story-highlight-title">THE DAY IT ALL BEGAN</div>
                     <p class="story-desc">A simple "hi" turned into endless conversations that stretched late into the night.</p>
                   </figcaption>
@@ -377,7 +381,7 @@
                 <figure class="memory-polaroid">
                   <span class="memory-tape"></span>
                   <div class="memory-photo">
-                    <img src="gallery/IMG_5549.webp" alt="Suvin and Sini — our connection" loading="lazy" decoding="async">
+                    <img src="gallery/img-2.webp" alt="Suvin and Sini — our connection" loading="lazy" decoding="async">
                   </div>
                   <figcaption class="story-card-inner">
                     <div class="story-highlight-title">CONNECTION</div>
@@ -391,7 +395,7 @@
                 <figure class="memory-polaroid">
                   <span class="memory-tape"></span>
                   <div class="memory-photo">
-                    <img src="gallery/IMG_5574.webp" alt="Suvin and Sini — little moments" loading="lazy" decoding="async">
+                    <img src="gallery/img-3.webp" alt="Suvin and Sini — little moments" loading="lazy" decoding="async">
                   </div>
                   <figcaption class="story-card-inner">
                     <div class="story-highlight-title">LITTLE MOMENTS</div>
@@ -405,7 +409,7 @@
                 <figure class="memory-polaroid">
                   <span class="memory-tape"></span>
                   <div class="memory-photo">
-                    <img src="gallery/IMG_5239.webp" alt="Suvin and Sini — trust and love" loading="lazy" decoding="async">
+                    <img src="gallery/img-4.webp" alt="Suvin and Sini — trust and love" loading="lazy" decoding="async">
                   </div>
                   <figcaption class="story-card-inner">
                     <div class="story-highlight-title">TRUST &amp; LOVE</div>
@@ -419,7 +423,7 @@
                 <figure class="memory-polaroid">
                   <span class="memory-tape"></span>
                   <div class="memory-photo">
-                    <img src="gallery/IMG_6006.webp" alt="Suvin and Sini — forever and always" loading="lazy" decoding="async">
+                    <img src="gallery/img-5.webp" alt="Suvin and Sini — forever and always" loading="lazy" decoding="async">
                   </div>
                   <figcaption class="story-card-inner">
                     <div class="story-highlight-title">FOREVER &amp; ALWAYS</div>
@@ -433,7 +437,7 @@
                 <figure class="memory-polaroid">
                   <span class="memory-tape"></span>
                   <div class="memory-photo">
-                    <img src="gallery/IMG_6747.webp" alt="Suvin and Sini — hand in hand" loading="lazy" decoding="async">
+                    <img src="gallery/img-6.webp" alt="Suvin and Sini — hand in hand" loading="lazy" decoding="async">
                   </div>
                   <figcaption class="story-card-inner">
                     <div class="story-highlight-title">HAND IN HAND</div>
@@ -447,7 +451,7 @@
                 <figure class="memory-polaroid">
                   <span class="memory-tape"></span>
                   <div class="memory-photo">
-                    <img src="gallery/IMG_7034.webp" alt="Suvin and Sini — here's to our journey" loading="lazy" decoding="async">
+                    <img src="gallery/img-7.webp" alt="Suvin and Sini — here's to our journey" loading="lazy" decoding="async">
                   </div>
                   <figcaption class="story-card-inner">
                     <div class="story-slide-footer">
@@ -617,7 +621,7 @@
             </div>
 
             <h3 class="event-script-title">Reception</h3>
-            <p class="event-tag-subtitle">DINNER &amp; CELEBRATION</p>
+            <p class="event-tag-subtitle">CELEBRATION</p>
             
             <div class="event-meta-divider">
               <span class="dash"></span>
@@ -835,6 +839,23 @@
     </section>
 
   </div>
+
+  <!-- Background Wedding Music -->
+  <audio id="weddingMusic" src="song.mp3" preload="auto" loop></audio>
+
+  <!-- Floating Music Play / Pause Button -->
+  <button type="button" id="musicToggle" class="music-toggle" aria-label="Play music" aria-pressed="false" title="Play music">
+    <span class="music-toggle-ring" aria-hidden="true"></span>
+    <svg class="music-icon music-icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M9 18V5l12-2v13"></path>
+      <circle cx="6" cy="18" r="3"></circle>
+      <circle cx="18" cy="16" r="3"></circle>
+    </svg>
+    <svg class="music-icon music-icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <rect x="6" y="5" width="4" height="14" rx="1"></rect>
+      <rect x="14" y="5" width="4" height="14" rx="1"></rect>
+    </svg>
+  </button>
 
   <!-- Confetti Canvas for scratch reveal celebration -->
   <canvas id="confettiCanvas" class="confetti-canvas"></canvas>

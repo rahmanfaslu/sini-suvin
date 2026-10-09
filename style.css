@@ -6,7 +6,7 @@
 @font-face {
   font-family: 'Ocean Delight';
   src: url('Ocean Delight.ttf') format('truetype');
-  font-weight: normal;
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
@@ -176,6 +176,46 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Cover Bride & Groom Names */
+.reveal-names-block {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.reveal-tagline {
+  font-family: var(--font-serif-royal);
+  font-size: 0.65rem;
+  letter-spacing: 4.5px;
+  color: rgba(255, 255, 255, 0.85);
+  text-transform: uppercase;
+  font-weight: 600;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.reveal-couple-names {
+  font-family: var(--font-ocean-delight);
+  font-size: 2.3rem;
+  font-weight: 300;
+  color: #ffffff;
+  line-height: 1.1;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.75);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.reveal-amp {
+  font-family: var(--font-serif-royal);
+  font-size: 1.1rem;
+  color: var(--color-gold-light);
+  margin: 0 6px;
+  font-weight: 400;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
 /* Transparent white "Open Invitation" button */
 .open-invitation-btn {
   appearance: none;
@@ -340,20 +380,25 @@ body {
 .first-name,
 .second-name {
   font-family: var(--font-ocean-delight);
-  font-size: 3rem;
+  font-size: 2.9rem;
+  font-weight: 300;
   color: var(--color-navy-dark);
   line-height: 1;
   text-transform: capitalize;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .weds-text {
   font-family: var(--font-ocean-delight);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: var(--color-gold-main);
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1;
   margin: 0 4px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .tagline-sub {
@@ -423,13 +468,14 @@ body {
 
 .revealed-date-script {
   font-family: var(--font-ocean-delight);
-  font-size: 2.8rem;
-  font-weight: normal;
+  font-size: 2.6rem;
+  font-weight: 300;
   color: #1e3a6e;
   line-height: 1.1;
   margin: 2px 0 4px 0;
   text-transform: capitalize;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .revealed-venue-text {
@@ -688,11 +734,14 @@ body {
 
 .section-subtitle-script {
   font-family: var(--font-ocean-delight);
-  font-size: 2rem;
+  font-size: 1.5rem;
+  font-weight: 300;
   color: var(--color-gold-main);
   line-height: 1;
   display: block;
   margin-top: -2px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .families-grid {
@@ -723,11 +772,14 @@ body {
 
 .person-name {
   font-family: var(--font-ocean-delight);
-  font-size: 2.6rem;
+  font-size: 1.95rem;
+  font-weight: 300;
   color: var(--color-navy-main);
   line-height: 1;
   margin-bottom: 2px;
   text-transform: capitalize;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .person-role-tag {
@@ -1081,10 +1133,13 @@ body {
 
 .story-slide-title {
   font-family: var(--font-ocean-delight);
-  font-size: 2rem;
+  font-size: 1.5rem;
+  font-weight: 300;
   color: var(--color-navy-main);
   margin-bottom: 12px;
   line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .story-timeline-item {
@@ -1151,9 +1206,12 @@ body {
 
 .script-journey {
   font-family: var(--font-ocean-delight);
-  font-size: 1.6rem;
+  font-size: 1.25rem;
+  font-weight: 300;
   color: var(--color-navy-main);
   line-height: 1.1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .carousel-nav {
@@ -1270,12 +1328,15 @@ body {
   backdrop-filter: blur(16px) saturate(150%);
   -webkit-backdrop-filter: blur(16px) saturate(150%);
   border-radius: 16px;
-  padding: 22px 18px 20px 18px;
+  padding: 24px 20px 22px 20px;
   box-shadow: 0 12px 32px rgba(18, 36, 60, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.65);
   outline: 1px solid rgba(191, 149, 63, 0.35);
   outline-offset: -2px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .parchment-event-card.featured {
@@ -1310,7 +1371,7 @@ body {
 .event-icon-illustration {
   width: 52px;
   height: 52px;
-  margin: 0 auto 8px auto;
+  margin: 0 auto 12px auto;
 }
 
 .event-svg-illustration {
@@ -1320,10 +1381,13 @@ body {
 
 .event-script-title {
   font-family: var(--font-ocean-delight);
-  font-size: 2.4rem;
+  font-size: 1.85rem;
+  font-weight: 300;
   color: var(--color-navy-main);
-  line-height: 1;
-  margin-bottom: 2px;
+  line-height: 1.1;
+  margin: 4px 0 5px 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .event-main-title {
@@ -1331,9 +1395,9 @@ body {
   font-size: 1.4rem;
   font-weight: 700;
   color: var(--color-navy-main);
-  line-height: 1.1;
+  line-height: 1.2;
   letter-spacing: 2.5px;
-  margin-bottom: 2px;
+  margin: 4px 0 5px 0;
 }
 
 .event-tag-subtitle {
@@ -1342,6 +1406,7 @@ body {
   letter-spacing: 3px;
   font-weight: 600;
   color: var(--color-gold-deep);
+  margin-bottom: 10px;
 }
 
 .event-meta-divider {
@@ -1349,7 +1414,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  margin: 6px 0;
+  margin: 10px auto 12px auto;
 }
 
 .event-meta-divider .dash {
@@ -1359,9 +1424,10 @@ body {
 }
 
 .event-date-callout {
-  margin: 4px 0 8px 0;
+  margin: 4px 0 12px 0;
   display: flex;
   flex-direction: column;
+  gap: 3px;
 }
 
 .ev-day-label {
@@ -1389,7 +1455,7 @@ body {
   font-weight: 600;
   color: var(--color-navy-dark);
   letter-spacing: 1.5px;
-  margin: 4px 0 6px 0;
+  margin: 6px 0 12px 0;
 }
 
 .time-icon {
@@ -1398,7 +1464,8 @@ body {
 }
 
 .event-venue-block {
-  margin: 4px 0 10px 0;
+  margin: 6px 0 14px 0;
+  width: 100%;
 }
 
 .venue-label {
@@ -1408,7 +1475,7 @@ body {
   font-weight: 600;
   color: var(--color-gold-deep);
   display: block;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
 .venue-name {
@@ -1416,20 +1483,24 @@ body {
   font-size: 0.92rem;
   font-weight: 700;
   color: var(--color-navy-dark);
+  line-height: 1.3;
+  margin-bottom: 4px;
 }
 
 .venue-location {
   font-family: var(--font-body);
   font-size: 0.85rem;
   color: var(--color-text-muted);
+  line-height: 1.4;
+  margin-top: 3px;
 }
 
 .scripture-quote-box {
   background: rgba(191, 149, 63, 0.06);
   border-left: 2px solid var(--color-gold-main);
   border-right: 2px solid var(--color-gold-main);
-  padding: 8px 12px;
-  margin: 8px 0 12px 0;
+  padding: 10px 14px;
+  margin: 8px 0 16px 0;
   border-radius: 4px;
 }
 
@@ -1438,7 +1509,7 @@ body {
   font-size: 0.88rem;
   font-style: italic;
   color: var(--color-navy-dark);
-  line-height: 1.3;
+  line-height: 1.35;
 }
 
 .scripture-reference {
@@ -1447,7 +1518,7 @@ body {
   font-size: 0.58rem;
   letter-spacing: 2.5px;
   color: var(--color-gold-deep);
-  margin-top: 3px;
+  margin-top: 4px;
   font-weight: 600;
 }
 
@@ -1456,6 +1527,8 @@ body {
   gap: 8px;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 8px;
+  width: 100%;
 }
 
 .event-map-btn,
@@ -1473,6 +1546,7 @@ body {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.2s ease;
+  margin-top: 8px;
 }
 
 .event-map-btn:hover,
@@ -1787,9 +1861,12 @@ body {
 
 .footer-couple-name {
   font-family: var(--font-ocean-delight);
-  font-size: 2rem;
+  font-size: 1.55rem;
+  font-weight: 300;
   color: var(--color-navy-main);
   line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .footer-forever-quote {
@@ -1864,17 +1941,17 @@ body {
 
 @media (max-width: 480px) {
   .first-name, .second-name {
-    font-size: 2.4rem;
+    font-size: 2.35rem;
   }
   .weds-text {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
   .scratch-card-box {
     width: 90vw;
     height: 180px;
   }
   .revealed-date-script {
-    font-size: 2.2rem;
+    font-size: 2.0rem;
   }
   .revealed-badge {
     font-size: 0.65rem;
@@ -1890,7 +1967,7 @@ body {
     min-width: 44px;
   }
   .person-name {
-    font-size: 2.2rem;
+    font-size: 1.7rem;
   }
   .polaroid-wrapper {
     max-width: 92vw;
@@ -1898,5 +1975,99 @@ body {
   .section-title {
     font-size: 1.3rem;
     letter-spacing: 4px;
+  }
+}
+
+/* ===================================================================
+   FLOATING MUSIC TOGGLE
+   =================================================================== */
+.music-toggle {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.45) 100%);
+  backdrop-filter: blur(14px) saturate(150%);
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  outline: 1px solid rgba(191, 149, 63, 0.45);
+  outline-offset: -2px;
+  box-shadow: 0 10px 26px rgba(18, 36, 60, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  color: var(--color-navy-dark);
+  cursor: pointer;
+  padding: 0;
+  z-index: 60;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.music-toggle.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.music-toggle:hover {
+  transform: scale(1.08);
+  box-shadow: 0 14px 30px rgba(18, 36, 60, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.music-toggle:active {
+  transform: scale(0.95);
+}
+
+.music-toggle-ring {
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 2px dashed rgba(191, 149, 63, 0.6);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.music-toggle.playing .music-toggle-ring {
+  opacity: 1;
+  animation: musicRingSpin 7s linear infinite;
+}
+
+@keyframes musicRingSpin {
+  to { transform: rotate(360deg); }
+}
+
+.music-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.music-icon-pause {
+  display: none;
+}
+
+.music-toggle.playing .music-icon-play {
+  display: none;
+}
+
+.music-toggle.playing .music-icon-pause {
+  display: block;
+  color: var(--color-gold-deep);
+}
+
+@media (max-width: 480px) {
+  .music-toggle {
+    right: 14px;
+    bottom: 14px;
+    width: 46px;
+    height: 46px;
+  }
+  .music-icon {
+    width: 19px;
+    height: 19px;
   }
 }

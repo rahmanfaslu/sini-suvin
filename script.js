@@ -12,6 +12,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initRevealIntro();
+  initBackgroundMusic();
   initScratchCard();
   initCountdown();
   initPetals();
@@ -40,6 +41,8 @@ function initRevealIntro() {
   function finishIntro() {
     if (revealScreen.classList.contains('opened')) return;
     revealScreen.classList.add('opened');
+    const musicToggle = document.getElementById('musicToggle');
+    if (musicToggle) musicToggle.classList.add('visible');
     setTimeout(() => {
       if (video) video.pause();
       revealScreen.style.display = 'none';
@@ -53,6 +56,8 @@ function initRevealIntro() {
     started = true;
 
     revealScreen.classList.add('playing');
+
+    if (typeof window.startWeddingMusic === 'function') window.startWeddingMusic();
 
     if (video) {
       video.currentTime = 0;
@@ -69,6 +74,60 @@ function initRevealIntro() {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && !started) openInvitation();
   });
+}
+
+/* ===================================================================
+   1b. BACKGROUND WEDDING MUSIC
+   Starts when the invitation is opened, toggled by the floating
+   button, and stops when the page is closed / tab is removed.
+   =================================================================== */
+function initBackgroundMusic() {
+  const audio = document.getElementById('weddingMusic');
+  const toggle = document.getElementById('musicToggle');
+  if (!audio || !toggle) return;
+
+  function syncUI() {
+    const playing = !audio.paused && !audio.ended;
+    toggle.classList.toggle('playing', playing);
+    toggle.setAttribute('aria-pressed', String(playing));
+    toggle.setAttribute('aria-label', playing ? 'Pause music' : 'Play music');
+    toggle.title = playing ? 'Pause music' : 'Play music';
+  }
+
+  function play() {
+    const p = audio.play();
+    if (p && typeof p.catch === 'function') p.catch(() => {});
+  }
+
+  // Called from the "Open Invitation" click gesture so autoplay is allowed
+  window.startWeddingMusic = function () {
+    if (audio.paused) play();
+    syncUI();
+  };
+
+  toggle.addEventListener('click', () => {
+    if (audio.paused) {
+      play();
+    } else {
+      audio.pause();
+    }
+    syncUI();
+  });
+
+  audio.addEventListener('play', syncUI);
+  audio.addEventListener('pause', syncUI);
+  audio.addEventListener('ended', syncUI);
+
+  // Stop the music when the tab is closed / the visitor leaves the page
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && !audio.paused) audio.pause();
+  });
+  window.addEventListener('pagehide', () => {
+    audio.pause();
+    try { audio.currentTime = 0; } catch (e) {}
+  });
+
+  syncUI();
 }
 
 /* ===================================================================
@@ -116,19 +175,6 @@ function initScratchCard() {
     grad.addColorStop(1, '#2d6aa3');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, w, h);
-
-    // Scattered gold & white star dust dots
-    for (let i = 0; i < 55; i++) {
-      const rx = (i * 47 + 19) % w;
-      const ry = (i * 61 + 23) % h;
-      const rSize = (i % 4 === 0) ? 1.7 : 1.1;
-      ctx.beginPath();
-      ctx.arc(rx, ry, rSize, 0, Math.PI * 2);
-      ctx.fillStyle = (i % 2 === 0) ? '#eedaa2' : '#ffffff';
-      ctx.globalAlpha = 0.35 + (i % 5) * 0.12;
-      ctx.fill();
-    }
-    ctx.globalAlpha = 1.0;
 
     // Faint gold hairline border
     ctx.strokeStyle = 'rgba(212, 175, 55, 0.45)';
