@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPetals();
   initScrollAnimations();
   initStoryCarousel();
+  initBrandingFeature();
 });
 
 /* ===================================================================
@@ -43,6 +44,8 @@ function initRevealIntro() {
     revealScreen.classList.add('opened');
     const musicToggle = document.getElementById('musicToggle');
     if (musicToggle) musicToggle.classList.add('visible');
+    const brandingBadge = document.getElementById('brandingBadge');
+    if (brandingBadge) brandingBadge.classList.add('visible');
     setTimeout(() => {
       if (video) video.pause();
       revealScreen.style.display = 'none';
@@ -627,3 +630,108 @@ function initStoryCarousel() {
     if (Math.abs(dx) > 45) navigateStory(dx < 0 ? 1 : -1);
   }, { passive: true });
 }
+
+/* ===================================================================
+   10. FLOATING BRANDING BADGE & DEVELOPER CTA MODAL
+   =================================================================== */
+function initBrandingFeature() {
+  const badge = document.getElementById('brandingBadge');
+  const modal = document.getElementById('brandingModal');
+  const modalClose = document.getElementById('brandingModalClose');
+  const modalBackdrop = document.getElementById('brandingModalBackdrop');
+  const heroSection = document.getElementById('page-1');
+  const revealScreen = document.getElementById('reveal-screen');
+
+  if (!badge || !modal) return;
+
+  let lastFocusedElement = null;
+
+  // If reveal screen is not present or already finished, show badge immediately
+  function checkRevealState() {
+    if (!revealScreen || revealScreen.classList.contains('opened') || revealScreen.style.display === 'none') {
+      badge.classList.add('visible');
+    }
+  }
+  checkRevealState();
+
+  // Scroll state observer: State A (Pill at hero) -> State B (Collapsed circle)
+  if ('IntersectionObserver' in window && heroSection) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        // When hero is mostly scrolled past, collapse to State B
+        if (entry.isIntersecting && entry.intersectionRatio > 0.15) {
+          badge.classList.remove('collapsed');
+          badge.setAttribute('aria-label', 'Want your own wedding invitation website? Learn more');
+        } else {
+          badge.classList.add('collapsed');
+          badge.setAttribute('aria-label', 'Information: Want your own wedding invitation website?');
+        }
+      });
+    }, {
+      root: null,
+      threshold: [0, 0.15, 0.5, 1.0]
+    });
+    observer.observe(heroSection);
+  } else {
+    // Fallback throttled scroll listener
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY || window.pageYOffset;
+          const heroThreshold = (window.innerHeight || 600) * 0.75;
+          if (scrollY > heroThreshold) {
+            badge.classList.add('collapsed');
+            badge.setAttribute('aria-label', 'Information: Want your own wedding invitation website?');
+          } else {
+            badge.classList.remove('collapsed');
+            badge.setAttribute('aria-label', 'Want your own wedding invitation website? Learn more');
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  // Open modal
+  function openModal() {
+    lastFocusedElement = document.activeElement;
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    badge.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('modal-open');
+
+    // Move focus inside modal for accessibility
+    setTimeout(() => {
+      if (modalClose) modalClose.focus();
+    }, 60);
+  }
+
+  // Close modal
+  function closeModal() {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    badge.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('modal-open');
+
+    // Return focus to trigger badge
+    if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+      lastFocusedElement.focus();
+    } else {
+      badge.focus();
+    }
+  }
+
+  // Event Listeners
+  badge.addEventListener('click', openModal);
+  if (modalClose) modalClose.addEventListener('click', closeModal);
+  if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeModal();
+    }
+  });
+}
+
