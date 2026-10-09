@@ -467,13 +467,14 @@ body {
 }
 
 .revealed-date-script {
-  font-family: var(--font-ocean-delight);
-  font-size: 2.6rem;
-  font-weight: 300;
+  font-family: var(--font-serif-royal);
+  font-size: 1.55rem;
+  font-weight: 700;
   color: #1e3a6e;
-  line-height: 1.1;
-  margin: 2px 0 4px 0;
-  text-transform: capitalize;
+  line-height: 1.2;
+  letter-spacing: 2px;
+  margin: 4px 0 6px 0;
+  text-transform: uppercase;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -775,11 +776,16 @@ body {
   font-size: 1.95rem;
   font-weight: 300;
   color: var(--color-navy-main);
-  line-height: 1;
+  line-height: 1.15;
   margin-bottom: 2px;
   text-transform: capitalize;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 2.3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .person-role-tag {
@@ -2073,6 +2079,11 @@ body {
     margin-bottom: 6px !important;
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8) !important;
     word-break: break-word !important;
+    min-height: 2.3em !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
   }
   .relation-label {
     font-family: var(--font-serif-royal), var(--font-sans) !important;
@@ -2210,7 +2221,8 @@ body {
     max-width: 80vw;
   }
   .revealed-date-script {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    letter-spacing: 1.5px;
     white-space: nowrap;
   }
   .revealed-badge {

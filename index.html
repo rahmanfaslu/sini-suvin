@@ -34,6 +34,61 @@
 </head>
 <body>
 
+  <!-- Shared Monogram Crest (used in hero, families stem, story postmark & footer) -->
+  <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
+    <symbol id="monogramCrest" viewBox="0 0 672 672">
+      <defs>
+        <!-- Leaf pointing up, with midrib and veins -->
+        <g id="leaf">
+          <path d="M0 0 C 15 -14 15 -46 0 -72 C -15 -46 -15 -14 0 0 Z" fill="#0d2260" />
+          <path d="M0 -3 L0 -62 M0 -20 L8 -33 M0 -20 L-8 -33 M0 -36 L7 -49 M0 -36 L-7 -49"
+                stroke="var(--crest-bg, #fff)" stroke-width="1.6" stroke-linecap="round" fill="none" opacity="0.85" />
+        </g>
+      </defs>
+
+      <!-- Thin outer arcs with dots -->
+      <path d="M345 8 C 470 0 570 120 568 295" fill="none" stroke="#0d2260" stroke-width="3" stroke-linecap="round" />
+      <circle cx="325" cy="8" r="5" fill="#0d2260" />
+      <path d="M98 380 C 85 520 170 635 285 652" fill="none" stroke="#0d2260" stroke-width="3" stroke-linecap="round" />
+      <circle cx="327" cy="652" r="4.5" fill="#0d2260" />
+
+      <!-- Monogram Initials S S -->
+      <text x="275" y="300" text-anchor="middle" font-family="'Playfair Display','Cinzel',serif" font-size="350" font-weight="700" fill="#0d2260">S</text>
+      <text x="445" y="660" text-anchor="middle" font-family="'Playfair Display','Cinzel',serif" font-size="520" font-weight="700" fill="#0d2260">S</text>
+
+      <!-- Vine stem -->
+      <path d="M335 630 C 280 560 250 480 270 410 C 290 340 340 330 360 290 C 380 250 400 220 425 160"
+            fill="none" stroke="#0d2260" stroke-width="3.5" stroke-linecap="round" />
+
+      <!-- Upper leaves -->
+      <use href="#leaf" transform="translate(425 165) rotate(12) scale(0.95)" />
+      <use href="#leaf" transform="translate(402 238) rotate(62) scale(0.95)" />
+      <use href="#leaf" transform="translate(383 262) rotate(-8) scale(0.55)" />
+      <use href="#leaf" transform="translate(352 296) rotate(-28) scale(0.95)" />
+      <use href="#leaf" transform="translate(318 392) rotate(48) scale(0.85)" />
+
+      <!-- Middle / lower leaves -->
+      <use href="#leaf" transform="translate(272 395) rotate(-38) scale(1.35)" />
+      <use href="#leaf" transform="translate(268 372) rotate(8) scale(0.75)" />
+      <use href="#leaf" transform="translate(262 470) rotate(-150) scale(0.5)" />
+      <use href="#leaf" transform="translate(300 535) rotate(10) scale(1)" />
+      <use href="#leaf" transform="translate(296 568) rotate(-82) scale(1)" />
+      <use href="#leaf" transform="translate(322 602) rotate(-105) scale(0.6)" />
+
+      <!-- Berry branch (left) -->
+      <path d="M296 568 Q 245 525 196 496" fill="none" stroke="#0d2260" stroke-width="2.5" stroke-linecap="round" />
+      <circle cx="172" cy="480" r="6" fill="#0d2260" />
+      <circle cx="188" cy="474" r="6" fill="#0d2260" />
+      <circle cx="178" cy="497" r="6" fill="#0d2260" />
+      <circle cx="190" cy="505" r="5" fill="#0d2260" />
+      <circle cx="220" cy="477" r="7" fill="#0d2260" />
+
+      <!-- Berry (right) -->
+      <path d="M335 625 Q 328 585 340 552" fill="none" stroke="#0d2260" stroke-width="2.5" stroke-linecap="round" />
+      <circle cx="340" cy="543" r="9" fill="#0d2260" />
+    </symbol>
+  </svg>
+
   <!-- Floating Falling Rose Petals & Golden Sparkles Container -->
   <div id="petals-container" aria-hidden="true"></div>
 
@@ -61,65 +116,7 @@
       <div class="hero-content">
         <!-- Monogram Crest -->
         <div class="monogram-crest-wrapper animate-on-scroll">
-          <svg class="monogram-crest" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
-            <!-- Outer Golden Laurel Ring -->
-            <defs>
-              <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#bf953f" />
-                <stop offset="25%" stop-color="#fcf6ba" />
-                <stop offset="50%" stop-color="#b38728" />
-                <stop offset="75%" stop-color="#fbf5b7" />
-                <stop offset="100%" stop-color="#aa771c" />
-              </linearGradient>
-              <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
-                <feGaussianBlur stdDeviation="1.5" result="blur" />
-                <feComposite in="SourceGraphic" in2="blur" operator="over" />
-              </filter>
-            </defs>
-
-            <!-- Crown / Crest Top -->
-            <path d="M 82 25 L 90 14 L 98 25 L 108 17 L 103 32 L 77 32 L 72 17 Z" fill="url(#goldGrad)" />
-            <circle cx="90" cy="12" r="2.5" fill="url(#goldGrad)" />
-            <circle cx="71" cy="15" r="2" fill="url(#goldGrad)" />
-            <circle cx="109" cy="15" r="2" fill="url(#goldGrad)" />
-
-            <!-- Laurel Wreath Left -->
-            <path d="M 68 36 C 44 48 34 76 38 108 C 42 126 56 146 76 156" fill="none" stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round" />
-            <path d="M 64 38 Q 50 38 48 48 Q 58 46 64 38 Z" fill="url(#goldGrad)" />
-            <path d="M 52 50 Q 36 54 36 65 Q 46 62 52 50 Z" fill="url(#goldGrad)" />
-            <path d="M 43 68 Q 28 75 30 87 Q 40 82 43 68 Z" fill="url(#goldGrad)" />
-            <path d="M 38 90 Q 24 100 29 111 Q 38 104 38 90 Z" fill="url(#goldGrad)" />
-            <path d="M 42 113 Q 32 128 42 136 Q 48 126 42 113 Z" fill="url(#goldGrad)" />
-            <path d="M 54 133 Q 48 147 62 151 Q 63 139 54 133 Z" fill="url(#goldGrad)" />
-
-            <!-- Laurel Wreath Right -->
-            <path d="M 112 36 C 136 48 146 76 142 108 C 138 126 124 146 104 156" fill="none" stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round" />
-            <path d="M 116 38 Q 130 38 132 48 Q 122 46 116 38 Z" fill="url(#goldGrad)" />
-            <path d="M 128 50 Q 144 54 144 65 Q 134 62 128 50 Z" fill="url(#goldGrad)" />
-            <path d="M 137 68 Q 152 75 150 87 Q 140 82 137 68 Z" fill="url(#goldGrad)" />
-            <path d="M 142 90 Q 156 100 151 111 Q 142 104 142 90 Z" fill="url(#goldGrad)" />
-            <path d="M 138 113 Q 148 128 138 136 Q 132 126 138 113 Z" fill="url(#goldGrad)" />
-            <path d="M 126 133 Q 132 147 118 151 Q 117 139 126 133 Z" fill="url(#goldGrad)" />
-
-            <!-- Bottom Laurel Ribbon Tie -->
-            <path d="M 72 154 Q 90 162 108 154 Q 90 158 72 154 Z" fill="url(#goldGrad)" />
-            <circle cx="90" cy="158" r="3.5" fill="url(#goldGrad)" />
-            <path d="M 87 160 Q 80 172 75 174" stroke="url(#goldGrad)" stroke-width="2" fill="none" />
-            <path d="M 93 160 Q 100 172 105 174" stroke="url(#goldGrad)" stroke-width="2" fill="none" />
-
-            <!-- Monogram Frame -->
-            <circle cx="90" cy="94" r="44" fill="none" stroke="url(#goldGrad)" stroke-width="1.2" stroke-dasharray="4,2" />
-            <circle cx="90" cy="94" r="48" fill="none" stroke="url(#goldGrad)" stroke-width="0.8" opacity="0.6" />
-
-            <!-- Monogram Initials S | S -->
-            <text x="73" y="103" text-anchor="middle" font-family="'Cinzel', serif" font-size="28" font-weight="700" fill="url(#goldGrad)">S</text>
-            <line x1="90" y1="78" x2="90" y2="110" stroke="url(#goldGrad)" stroke-width="1.5" stroke-linecap="round" />
-            <text x="107" y="103" text-anchor="middle" font-family="'Cinzel', serif" font-size="28" font-weight="700" fill="url(#goldGrad)">S</text>
-
-            <!-- Bottom filigree flourish inside circle -->
-            <path d="M 76 116 Q 90 119 104 116" stroke="url(#goldGrad)" stroke-width="1.2" fill="none" />
-            <circle cx="90" cy="120" r="1.5" fill="url(#goldGrad)" />
-          </svg>
+          <svg class="monogram-crest" viewBox="0 0 672 672" xmlns="http://www.w3.org/2000/svg"><use href="#monogramCrest"></use></svg>
         </div>
 
         <!-- Couple Names -->
@@ -289,12 +286,7 @@
           <div class="families-center-stem">
             <div class="stem-line-top"></div>
             <div class="stem-crest">
-              <svg viewBox="0 0 100 100" width="52" height="52" class="stem-crest-svg">
-                <circle cx="50" cy="50" r="44" fill="#faf6f0" stroke="#bf953f" stroke-width="2" />
-                <circle cx="50" cy="50" r="40" fill="none" stroke="#bf953f" stroke-width="1" stroke-dasharray="2,3" />
-                <path d="M 22 50 C 22 65 35 78 50 78 C 65 78 78 65 78 50" fill="none" stroke="#bf953f" stroke-width="1.5" />
-                <text x="50" y="54" text-anchor="middle" font-family="'Cinzel', serif" font-size="18" font-weight="700" fill="#a47a28" letter-spacing="2">S | S</text>
-              </svg>
+              <svg viewBox="0 0 672 672" class="stem-crest-svg"><use href="#monogramCrest"></use></svg>
             </div>
             <div class="stem-line-bottom"></div>
           </div>
@@ -365,13 +357,7 @@
         <div class="polaroid-wrapper animate-on-scroll">
           <div class="polaroid-washi-tape"></div>
           <div class="polaroid-postmark">
-            <svg viewBox="0 0 90 90" width="58" height="58" class="postmark-svg">
-              <circle cx="45" cy="45" r="40" fill="none" stroke="rgba(191,149,63,0.5)" stroke-width="1.5" />
-              <circle cx="45" cy="45" r="35" fill="none" stroke="rgba(191,149,63,0.3)" stroke-dasharray="2,2" stroke-width="1" />
-              <text x="45" y="38" text-anchor="middle" font-family="'Cinzel', serif" font-size="10" fill="rgba(191,149,63,0.7)" letter-spacing="1">FOREVER</text>
-              <text x="45" y="52" text-anchor="middle" font-family="'Cinzel', serif" font-size="12" font-weight="700" fill="rgba(191,149,63,0.85)">S | S</text>
-              <text x="45" y="64" text-anchor="middle" font-family="'Montserrat', sans-serif" font-size="8" fill="rgba(191,149,63,0.7)">2027</text>
-            </svg>
+            <svg viewBox="0 0 672 672" class="postmark-svg"><use href="#monogramCrest"></use></svg>
           </div>
 
           <div class="polaroid-card">
@@ -667,7 +653,7 @@
               <span class="ev-full-date">4TH JANUARY, 2027</span>
             </div>
 
-            <h3 class="event-script-title">Reception</h3>
+            <h3 class="event-main-title">Reception</h3>
             <p class="event-tag-subtitle">To be followed</p>
             
             <div class="event-meta-divider">
@@ -872,10 +858,7 @@
         <!-- Footer Monogram & Credits -->
         <footer class="invitation-footer animate-on-scroll">
           <div class="footer-crest">
-            <svg viewBox="0 0 100 100" class="footer-monogram-svg">
-              <circle cx="50" cy="50" r="42" fill="none" stroke="#cca352" stroke-width="1.2" stroke-dasharray="3,3" />
-              <text x="50" y="58" text-anchor="middle" font-family="'Cinzel', serif" font-size="20" fill="#a47a28" font-weight="700" letter-spacing="2">S | S</text>
-            </svg>
+            <svg viewBox="0 0 672 672" class="footer-monogram-svg"><use href="#monogramCrest"></use></svg>
           </div>
           <p class="footer-couple-name">Suvin &amp; Sini</p>
           <p class="footer-forever-quote">Your prayers and gracious presence will be a blessing to us on this joyful day </p>
